@@ -1,0 +1,27 @@
+{
+  "name": "vue-flip-number-card",
+  "version": "0.1.0",
+  "private": false,
+  "main": "dist/vue-flip-number-card-umd.min.js",
+  "keyword": "vue flip number",
+  "description": "a flip number component for vue",
+  "author": "waiaan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waiaan/vue-flip-number.git"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name vue-flip-number-card ./src/components/index.js"
+  },
+  "dependencies": {
+    "core-js": "^3.4.4",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
