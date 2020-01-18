@@ -2,7 +2,7 @@
   <div class="flip-number">
     <template v-for="(item, index) in numbersSplitted">
       <template v-if="typeof(item)==='number'">
-        <flip-number-item :value="item" :speed="interval" class="loop-item" :key="index"></flip-number-item>
+        <flip-number-item :value="item" :speed="speed" class="loop-item" :key="index"></flip-number-item>
       </template>
       <template v-else>
         <div class="loop-item sign" :key="index">{{item}}</div>
@@ -26,16 +26,16 @@ export default {
     },
     speed: {
       type: [Number, String],
-      default: 450
+      default: 600
     }
   },
   data () {
     let _speed = this.speed * 1
     if (isNaN(_speed)) {
       console.error('the prop speed is not a number')
-      _speed = 450
+      _speed = 600
     } else {
-      _speed = _speed < 450 ? 450 : _speed
+      _speed = _speed < 600 ? 600 : _speed
     }
     return {
       numbersSplitted: [],

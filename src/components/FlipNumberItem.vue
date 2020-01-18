@@ -9,16 +9,7 @@
 <script>
 export default {
   name: 'FlipNumberItem',
-  props: {
-    value: {
-      type: Number,
-      default: 0
-    },
-    speed: {
-      type: Number,
-      default: 450
-    }
-  },
+  props: ['value', 'speed'],
   data () {
     return {
       frontCount: 0,
@@ -39,6 +30,7 @@ export default {
   methods: {
     async flipDown (newVal, oldVal) {
       while (newVal > oldVal) {
+        // console.log(new Date().toTimeString())
         await this.flipDownOne(oldVal)
         oldVal++
       }
@@ -49,38 +41,36 @@ export default {
         oldVal--
       }
     },
-    flipDownOne (num) {
-      return new Promise((resolve, reject) => {
-        if (this.isFlipping) {
-          return false
-        }
-        this.frontCount = num
-        this.backCount = this.frontCount >= 9 ? 0 : (this.frontCount + 1)
-        this.animationClass = 'down go'
-        this.isFlipping = true
-        setTimeout(() => {
-          this.animationClass = 'down'
-          this.isFlipping = false
-          this.frontCount = this.backCount
-          resolve()
-        }, this.speed)
-      })
+    async flipDownOne (num) {
+      if (this.isFlipping) {
+        return false
+      }
+      this.frontCount = num
+      this.backCount = this.frontCount >= 9 ? 0 : (this.frontCount + 1)
+      this.animationClass = 'down go'
+      this.isFlipping = true
+      await this.resetClass('down')
     },
-    flipUpOne (num) {
+    async flipUpOne (num) {
+      if (this.isFlipping) {
+        return false
+      }
+      this.frontCount = num
+      this.backCount = this.frontCount <= 0 ? 9 : (this.frontCount - 1)
+      this.animationClass = 'up go'
+      this.isFlipping = true
+      await this.resetClass('up')
+    },
+    resetClass (type) {
       return new Promise((resolve, reject) => {
-        if (this.isFlipping) {
-          return false
-        }
-        this.frontCount = num
-        this.backCount = this.frontCount <= 0 ? 9 : (this.frontCount - 1)
-        this.animationClass = 'up go'
-        this.isFlipping = true
         setTimeout(() => {
-          this.animationClass = 'up'
+          this.animationClass = type
           this.isFlipping = false
           this.frontCount = this.backCount
-          resolve()
-        }, this.speed)
+          setTimeout(() => {
+            resolve()
+          }, this.speed / 2)
+        }, this.speed / 2)
       })
     }
   }
