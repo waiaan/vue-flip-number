@@ -1,4 +1,35 @@
-# flip-number
+# vue-flip-number-card
+
+a flip number card component for vue.
+
+follow the lead of  [干货满满!如何优雅简洁地实现时钟翻牌器(支持JS/Vue/React)](https://juejin.im/post/5dd9490a6fb9a07a961d11e7)
+
+## demo
+
+![avatar](/demo.gif)
+
+## usage
+
+```html
+<filp-number :value="value" :speed="700"></filp-number>
+```
+```js
+import FilpNumber from '@/components/FlipNumber'
+```
+
+```js
+props: {
+  value: {
+    type: String,
+    required: true,
+    default: 0
+  },
+  speed: {
+    type: [Number, String],
+    default: 600
+  }
+}
+```
 
 ## Project setup
 ```

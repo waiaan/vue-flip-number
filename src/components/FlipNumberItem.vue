@@ -69,8 +69,8 @@ export default {
           this.frontCount = this.backCount
           setTimeout(() => {
             resolve()
-          }, this.speed / 2)
-        }, this.speed / 2)
+          }, 0)
+        }, this.speed)
       })
     }
   }
@@ -136,13 +136,13 @@ export default {
 
 .flip.down.go .front:before {
   transform-origin: 50% 100%;
-  animation: frontFlipDown 0.6s ease-in-out both;
+  animation: frontFlipDown 0.3s ease-in-out both;
   box-shadow: 0 -2px 6px rgba(255, 255, 255, 0.3);
   backface-visibility: hidden;
 }
 
 .flip.down.go .back:after {
-  animation: backFlipDown 0.6s ease-in-out both;
+  animation: backFlipDown 0.3s ease-in-out both;
 }
 
 /*向上翻*/
@@ -163,13 +163,13 @@ export default {
 
 .flip.up.go .front:after {
   transform-origin: 50% 0;
-  animation: frontFlipUp 0.6s ease-in-out both;
+  animation: frontFlipUp 0.3s ease-in-out both;
   box-shadow: 0 2px 6px rgba(255, 255, 255, 0.3);
   backface-visibility: hidden;
 }
 
 .flip.up.go .back:before {
-  animation: backFlipUp 0.6s ease-in-out both;
+  animation: backFlipUp 0.3s ease-in-out both;
 }
 
 @keyframes frontFlipDown {

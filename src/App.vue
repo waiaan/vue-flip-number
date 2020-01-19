@@ -20,7 +20,8 @@ export default {
   },
   data () {
     return {
-      value: 0.0
+      value: '0000.00'
+      // value: '0'
     }
   },
   methods: {
@@ -29,10 +30,12 @@ export default {
       this.value = (Math.random() * 10000).toFixed(2)
     },
     add () {
-      this.value += 4
+      this.value *= 1
+      this.value += 9
     },
     abstract () {
-      this.value -= 4
+      this.value *= 1
+      this.value -= 9
     }
   }
 }
