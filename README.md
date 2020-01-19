@@ -22,7 +22,7 @@ props: {
   value: {
     type: String,
     required: true,
-    default: 0
+    default: '0'
   },
   speed: {
     type: [Number, String],
@@ -30,6 +30,13 @@ props: {
   }
 }
 ```
+
+ value:
+ could be like '00000.00'、'0012' and so on for placeholder
+
+ speed:
+ could not be less than 600.
+
 
 ## Project setup
 ```

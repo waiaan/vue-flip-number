@@ -22,7 +22,7 @@ export default {
     value: {
       type: String,
       required: true,
-      default: 0
+      default: '0'
     },
     speed: {
       type: [Number, String],
